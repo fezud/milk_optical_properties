@@ -143,14 +143,14 @@ def Ps(H, initial_x=0):
                 quartz_absorption
             # 2 – из симметрии
 
-            # if x >= 10*dx and x <= L/2:
-            #     plot_setup_zy(H)
-            #     plt.plot([0, z], [0, y], 'bo', linestyle="--", color='black')
-            #     plt.plot([z_quartz_intersection], [y_quartz_intersection], marker="o", color='green')
-            #     plt.plot([z_milk_intersection], [y_milk_intersection], marker="o", color='green')
-            #     plt.plot([z_milk_intersection, z], [y_milk_intersection, y], 'bo', linestyle="--", color='yellow')
-            #     plt.plot([0, z], [H + d/2, y], 'bo', linestyle="--", color='black')
-            #     plt.show()
+            if x >= 10*dx and x <= L/2:
+                plot_setup_zy(H)
+                plt.plot([0, z], [0, y], 'bo', linestyle="--", color='black')
+                plt.plot([z_quartz_intersection], [y_quartz_intersection], marker="o", color='green')
+                plt.plot([z_milk_intersection], [y_milk_intersection], marker="o", color='green')
+                plt.plot([z_milk_intersection, z], [y_milk_intersection, y], 'bo', linestyle="--", color='yellow')
+                plt.plot([0, z], [H + d/2, y], 'bo', linestyle="--", color='black')
+                plt.show()
 
             # if x >= 10*dx and x <= L/2:
             #     plot_setup_xy(H)
@@ -177,9 +177,9 @@ fractions = [Ps(h, initial_x=0) for h in H]
 #     data = {'H, m': H, 'P, отн. ед': fractions}
 #     pickle.dump(data, file)
 
-with open('data.pickle', 'rb') as file:
-    h: np.arange = pickle.load(file)
-    print(h)
+# with open('data.pickle', 'rb') as file:
+#     h: np.arange = pickle.load(file)
+#     print(h)
 
 # plt.figure(figsize=(15, 13), facecolor='white')
 # plt.plot(H[:], fractions[:], color='tab:blue')
